@@ -101,7 +101,7 @@ class ImageFinder extends Component {
     } = this.state;
     const { handleSearchSubmit, loadMore, handleCloseModal, handleShowModal} = this;
     return(
-      <>
+      <div>
         <Searchbar onSubmit = {handleSearchSubmit}/>
         {items.length > 0 && (
           <ImageGallery items={items} handleShowModal={handleShowModal} />
@@ -118,11 +118,12 @@ class ImageFinder extends Component {
             imgLargeSrc={largeImageURL}
             onModalClose={handleCloseModal}
           />
-          </>
+        )}
+          </div>
           )
   }
 
-  }
+
 
 }
 export default ImageFinder
