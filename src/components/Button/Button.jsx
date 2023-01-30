@@ -1,4 +1,4 @@
-import styles from './button.module.css';
+import styles from './button.module.scss';
 import PropTypes from 'prop-types';
 
 const Button = ({ loadMore }) => {

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import ImageGalleryItem from "../ImageGalleryItem/ImageGalleryItem";
 import styles from './image-gallery.module.scss'
-const ImageGallery = () =>{
+const ImageGallery = ({ items, error, handleShowModal }) =>{
   const elements = items.map(({ id, webformatURL, largeImageURL, tags }) => (
     <ImageGalleryItem
       key={id}
