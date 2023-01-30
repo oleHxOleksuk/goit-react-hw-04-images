@@ -1,15 +1,15 @@
-import {Component} from "react";
-import Notiflix from "notiflix";
+import { Component } from 'react';
+import Notiflix from 'notiflix';
 
-import Api from '../../shared/Api'
-import Searchbar from "../Searchbar/Searchbar";
-import Modal from "../Modal/Modal";
-import Button from "../Button/Button";
-import ImageGallery from "../ImageGallery/ImageGallery";
+import Api from '../../shared/Api';
+import Searchbar from '../Searchbar/Searchbar';
+import Modal from '../Modal/Modal';
+import Button from '../Button/Button';
+import ImageGallery from '../ImageGallery/ImageGallery';
 
 class ImageFinder extends Component {
   state = {
-    items:[],
+    items: [],
     loading: false,
     error: null,
     search: '',
@@ -18,7 +18,7 @@ class ImageFinder extends Component {
     largeImageURL: '',
     imgAlt: '',
     showModal: false,
-  }
+  };
   componentDidUpdate(prevProps, prevState) {
     const { search, page } = this.state;
     if (prevState.search !== search || prevState.page !== page) {
@@ -46,27 +46,7 @@ class ImageFinder extends Component {
   handleSearchSubmit = search => {
     this.setState({ search, items: [], page: 1 });
   };
-  loadMore = () => {
-    this.setState(({ page }) => ({ page: page + 1 }));
-  };
 
-  handleShowModal = event => {
-    const imgAlt = event.target.alt;
-    const largeImageURL = event.target.srcset;
-    this.setState({
-      showModal: true,
-      imgAlt: imgAlt,
-      largeImageURL: largeImageURL,
-    });
-  };
-
-  handleCloseModal = () => {
-    this.setState({
-      showModal: false,
-      imgAlt: '',
-      largeImageURL: '',
-    });
-  };
   loadMore = () => {
     this.setState(({ page }) => ({ page: page + 1 }));
   };
@@ -99,10 +79,11 @@ class ImageFinder extends Component {
       largeImageURL,
       showModal,
     } = this.state;
-    const { handleSearchSubmit, loadMore, handleCloseModal, handleShowModal} = this;
-    return(
+    const { handleSearchSubmit, loadMore, handleCloseModal, handleShowModal } =
+      this;
+    return (
       <div>
-        <Searchbar onSubmit = {handleSearchSubmit}/>
+        <Searchbar onSubmit={handleSearchSubmit} />
         {items.length > 0 && (
           <ImageGallery items={items} handleShowModal={handleShowModal} />
         )}
@@ -119,11 +100,8 @@ class ImageFinder extends Component {
             onModalClose={handleCloseModal}
           />
         )}
-          </div>
-          )
+      </div>
+    );
   }
-
-
-
 }
-export default ImageFinder
+export default ImageFinder;
