@@ -2,7 +2,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://pixabay.com/api';
 
-const api = async (nextRequest, prevPage) => {
+const apiServise = async (nextRequest, prevPage) => {
   const { data } = await axios.get('https://pixabay.com/api/', {
     params: {
       key: '33215555-402cf33540e5684cae94cb78a',
@@ -17,4 +17,4 @@ const api = async (nextRequest, prevPage) => {
   return data;
 };
 
-export default api;
+export default apiServise;
